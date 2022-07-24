@@ -1,34 +1,14 @@
-from turtle import *
+from turtle import*
+bgcolor('purple')
 speed('slowest')
-pencolor('red')
-bgcolor('blue')
-pensize(10)
-
-side = 15
-size = 100
-fillcolor('green')
-begin_fill()
-
-for i in range(side):
-    fd(size)
-    lt(90/side)
-    rt(size)
-    fd(size)
-    lt(90/side)
-    rt(size)
-    fd(size)
-    lt(90/side)
-    rt(size)
-    fd(size)
-    lt(90/side)
-    rt(size)
-    fd(size)
-    lt(90/side)
-    rt(size)
-    fd(size)
-    lt(90/side)
-    rt(size)
-    
+pencolor('skyblue')
+for i in range(4):
+      lt(90)
+      fd(50)
+      rt(90)
+      fd(50)
+      rt(90)
+      fd(50)
 
 end_fill()
-mainloop()    
+mainloop()
