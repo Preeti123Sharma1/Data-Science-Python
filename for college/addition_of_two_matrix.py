@@ -17,6 +17,4 @@ for i in range(0,len(C)):
         C[i][j] = A[i][j] + B[i][j]
 
 for row in C:
-    print(row)        
-
-print(C.ndim)    
+    print(row) 
