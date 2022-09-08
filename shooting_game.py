@@ -1,6 +1,6 @@
 import pgzrun
 import random 
-
+ 
 WIDTH = 600
 HEIGHT = 800
 MAX_BULLETS = 3
@@ -9,6 +9,10 @@ level = 1
 lives = 3
 score = 0
 
+'''game_over = False # switch
+game_started = False # switch
+center = (WIDTH//2, HEIGHT//2)'''
+ 
 background = Actor("background")
 player = Actor("ironman", (200, 580))
 enemies = []
@@ -29,12 +33,29 @@ def draw():
         bomb.draw()
     draw_text()
 
+'''def show_screen_1():
+    background.draw()
+    screen.draw.text('Our Game',center=center, fontsize=100, color='black')
+    screen.draw.text('press Space to start', center = (center[0], center[1]+100),
+                    fontsize=50, color='dark blue')
+
+
 def show_game_over():
     background.draw()
     screen.draw.text('Game Over', center=center, fontsize=100, color= 'white')
 
+def draw():
+    screen.clear()
+    if not game_started:
+        show_screen_1()
+    elif game_started and not game_over:
+        show_game_screen()
+    elif game_over:
+        show_game_over() '''
 
 def update(delta):
+    global game_started
+    
     move_player()
     move_bullets()
     move_enemies()
