@@ -9,9 +9,12 @@ level = 1
 lives = 3
 score = 0
 
-'''game_over = False # switch
+music.play('bgm')
+
+
+game_over = False # switch
 game_started = False # switch
-center = (WIDTH//2, HEIGHT//2)'''
+center = (WIDTH//2, HEIGHT//2)
  
 background = Actor("background")
 player = Actor("ironman", (200, 580))
@@ -33,13 +36,20 @@ def draw():
         bomb.draw()
     draw_text()
 
-'''def show_screen_1():
+'''def show_game_screen():
+    background.draw()
+    player.draw()
+    enemy.draw()
+    bullet.draw()
+    bomb.draw()
+
+def show_screen_1():
     background.draw()
     screen.draw.text('Our Game',center=center, fontsize=100, color='black')
     screen.draw.text('press Space to start', center = (center[0], center[1]+100),
                     fontsize=50, color='dark blue')
 
-
+ 
 def show_game_over():
     background.draw()
     screen.draw.text('Game Over', center=center, fontsize=100, color= 'white')
@@ -50,21 +60,24 @@ def draw():
         show_screen_1()
     elif game_started and not game_over:
         show_game_screen()
-    elif game_over:
+    else :
         show_game_over() '''
 
 def update(delta):
     global game_started
-    
+
+    '''if keyboard.SPACE and not game_started:
+        game_started = True
+    if game_started and not game_over:'''
     move_player()
     move_bullets()
     move_enemies()
     create_bombs()
     move_bombs()
     check_for_end_of_level()
-    
+        
 
-def move_player():
+'''def move_player():
     pass
 
 def move_enemies():
@@ -83,7 +96,7 @@ def check_for_end_of_level():
     pass
 
 def draw_text():
-    pass
+    pass'''
 
 def create_enemies():
     for x in range(0, 600, 60):
@@ -131,18 +144,21 @@ def on_key_down(key):
     if key == keys.SPACE and len(bullets) < MAX_BULLETS:
         bullet = Actor("bullet", pos=(player.x, player.y))
         bullets.append(bullet)
+        sounds.bulletm.play()
 
 def move_bullets():
     for bullet in bullets:
         bullet.y = bullet.y - 6
         if bullet.y < 0:
             bullets.remove(bullet)
+            
 
 def create_bombs():
     if random.randint(0, 100 - level * 6) == 0:
         enemy = random.choice(enemies)
         bomb = Actor("bomb", enemy.pos)
         bombs.append(bomb)
+        sounds.bomb.play()
 
 def move_bombs():
     global lives
