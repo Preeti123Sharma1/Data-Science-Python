@@ -169,6 +169,7 @@ def move_bombs():
             lives = lives - 1
             if lives == 0:
                 exit()
+            
 
 def check_for_end_of_level():
     global level
