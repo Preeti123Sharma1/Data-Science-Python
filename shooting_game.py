@@ -22,28 +22,14 @@ enemies = []
 bullets = []
 bombs = []
 
-
-
-def draw():
-    screen.clear()
-    background.draw()
-    player.draw()
-    for enemy in enemies:
-        enemy.draw()
-    for bullet in bullets:
-        bullet.draw()
-    for bomb in bombs:
-        bomb.draw()
-    draw_text()
-
-'''def show_game_screen():
+def show_game_screen():
     background.draw()
     player.draw()
     enemy.draw()
     bullet.draw()
     bomb.draw()
 
-def show_screen_1():
+'''def show_screen_1():
     background.draw()
     screen.draw.text('Our Game',center=center, fontsize=100, color='black')
     screen.draw.text('press Space to start', center = (center[0], center[1]+100),
@@ -62,6 +48,20 @@ def draw():
         show_game_screen()
     else :
         show_game_over() '''
+
+def draw():
+    screen.clear()
+    background.draw()
+    player.draw()
+    for enemy in enemies:
+        enemy.draw()
+    for bullet in bullets:
+        bullet.draw()
+    for bomb in bombs:
+        bomb.draw()
+    draw_text()
+
+
 
 def update(delta):
     global game_started
@@ -97,7 +97,7 @@ def check_for_end_of_level():
 
 def draw_text():
     pass'''
-
+ 
 def create_enemies():
     for x in range(0, 600, 60):
         for y in range(0, 200, 60):
@@ -144,7 +144,7 @@ def on_key_down(key):
     if key == keys.SPACE and len(bullets) < MAX_BULLETS:
         bullet = Actor("bullet", pos=(player.x, player.y))
         bullets.append(bullet)
-        sounds.bulletm.play()
+        sounds.bullet.play()
 
 def move_bullets():
     for bullet in bullets:

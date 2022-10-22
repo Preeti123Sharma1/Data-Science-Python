@@ -31,7 +31,7 @@ st.sidebar.header("Select Option")
 if st.sidebar.checkbox("Show Pivot Table Summary"):
     st.subheader("Pivot Table Summmary")
     c1,c2 =st.columns(2)
-    categorical_cols= df.select_dtype(exclude=np.number).columns
+    categorical_cols= df.select_dtypes(exclude=np.number).columns
     numeric_cols= df.select_dtypes(include=np.number).columns
     index_col = c1.selectbox("Pivot Index", options=categorical_cols)
     values_col =c1.multiselect( "Pivot Value", options=numeric_cols)
