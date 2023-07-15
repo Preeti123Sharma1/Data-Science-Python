@@ -18,7 +18,7 @@ class Enemy(Actor):
 
     def chase(self,player):
         global game_over
-        if self.x < player.x :
+        if self.x < player.x:
             self.x += self.speed
         if self.x > player.x:
             self.x += -self.speed
